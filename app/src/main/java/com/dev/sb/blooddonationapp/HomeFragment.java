@@ -41,7 +41,7 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
-        mfilterButton=view.findViewById(R.id.filter_fab);
+        mfilterButton = view.findViewById(R.id.filter_fab);
         mRecyclerView = view.findViewById(R.id.recycler_View);
         mAdapter = new UserAdapter(mOtherUsersList);
         mRecyclerView.setHasFixedSize(true);
@@ -51,12 +51,8 @@ public class HomeFragment extends Fragment {
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.addItemDecoration(new DividerItemDecoration(getActivity()
                 .getApplicationContext(), LinearLayoutManager.VERTICAL));
-        mContactLayout = view.findViewById(R.id.contact_layout);
-  /*      try {
-            mContactLayout.setVisibility(View.GONE);
-        } catch (Exception e) {
-           Log.e("Visibility",e.toString());
-        }*/
+
+
         //TODO:Above comment does not work,implement:  When one list name is opened other should
         // get closed.
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -67,12 +63,6 @@ public class HomeFragment extends Fragment {
                 Toast.makeText(getActivity().getApplicationContext(), position + "selected", Toast
                         .LENGTH_SHORT).show();
 
-                mContactLayout = view.findViewById(R.id.contact_layout);
-                if (mContactLayout.getVisibility() == View.VISIBLE) {
-                    mContactLayout.setVisibility(View.GONE);
-                } else {
-                    mContactLayout.setVisibility(View.VISIBLE);
-                }
             }
         }));
         mRecyclerView.setAdapter(mAdapter);
