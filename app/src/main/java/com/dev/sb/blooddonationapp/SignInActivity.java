@@ -41,13 +41,8 @@ public class SignInActivity extends AppCompatActivity
                 mSignInProgress = findViewById(R.id.sign_in_progress);
                 mAuth = FirebaseAuth.getInstance();
 
-                if (mAuth.getCurrentUser() != null)
-                    {
-                        startActivity(new Intent(SignInActivity.this, MainActivity.class));
-                        Log.d("Current user",mAuth.getCurrentUser().getEmail());
-                        finish();
-                    }
 
+//TODO: Launcher activity:Main activity
                 mSignInButton.setOnClickListener(new View.OnClickListener()
                     {
                         @Override
@@ -109,5 +104,7 @@ public class SignInActivity extends AppCompatActivity
                             }
                     });
             }
-
+//TODO:inactive sign in or up button before entering details
+        //TODO:
+        //TODO:
     }

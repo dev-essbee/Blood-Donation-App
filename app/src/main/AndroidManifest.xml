@@ -11,18 +11,47 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SignInActivity">
-
-        </activity>
-        <activity android:name=".MainActivity" />
-        <activity android:name=".EligibilityActivity" />
-        <activity android:name=".SignUpActivity" />
-        <activity android:name=".UserProfileActivity">
+        <activity
+            android:name=".SignInActivity"
+            android:screenOrientation="sensorPortrait"></activity>
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="sensorPortrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".EligibilityActivity"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".SignUpActivity"
+            android:screenOrientation="sensorPortrait" />
+        <activity
+            android:name=".UserProfileActivity"
+            android:screenOrientation="sensorPortrait"></activity>
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAgpe3IiQUw4cKtVZcvWIXxy4vzCkJJ9sw" />
+
+        <activity
+            android:name=".roughListActivity"
+            android:label="@string/title_rough_list"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".roughDetailActivity"
+            android:label="@string/title_rough_detail"
+            android:parentActivityName=".roughListActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.dev.sb.blooddonationapp.roughListActivity" />
         </activity>
     </application>
 

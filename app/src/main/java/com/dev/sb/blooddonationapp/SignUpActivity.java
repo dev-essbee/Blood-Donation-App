@@ -51,7 +51,7 @@ public class SignUpActivity extends AppCompatActivity
                         @Override
                         public void onClick(View v)
                             {
-                                String email = mInputEmail.getText().toString().trim();
+                                final String email = mInputEmail.getText().toString().trim();
                                 String password = mInputPassword.getText().toString().trim();
                                 if (TextUtils.isEmpty(email))
                                     {
@@ -68,6 +68,7 @@ public class SignUpActivity extends AppCompatActivity
                                         Toast.makeText(mContext, R.string.minimum_password, Toast.LENGTH_SHORT).show();
                                     }
                                 mSignUpProgress.setVisibility(View.VISIBLE);
+
                                 mAuth.createUserWithEmailAndPassword(email, password)
                                         .addOnCompleteListener(SignUpActivity.this, new OnCompleteListener<AuthResult>()
                                             {
@@ -83,7 +84,9 @@ public class SignUpActivity extends AppCompatActivity
                                                             } else
                                                             {
                                                                 Toast.makeText(SignUpActivity.this, "done" + task.getException(), Toast.LENGTH_SHORT).show();
-                                                                startActivity(new Intent(SignUpActivity.this,UserProfileActivity.class));
+                                                                Intent intent=new Intent(SignUpActivity.this, UserProfileActivity.class)
+                                                                        .putExtra("email",email);
+                                                                startActivity(intent);
                                                                 finish();
 
                                                             }

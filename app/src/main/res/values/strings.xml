@@ -45,18 +45,22 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="enter_password">Enter Password!</string>
-    <string name="name_first">First Name</string>
-    <string name="name_last">Last Name</string>
+    <string name="name_first">Name</string>
     <string name="age">Age</string>
-    <string name="contact_no">Contact Number</string>
+    <string name="contact_no">Mobile Number</string>
     <string name="submit">submit</string>
     <string name="clear">clear</string>
+    <string name="location">Location</string>
+    <string name="select_gender">Select Gender</string>
+    <string name="selct_bld_grp">Select Blood Group</string>
     <string-array name="array_gender">
+
         <item>Male</item>
         <item>Female</item>
         <item>Others</item>
     </string-array>
     <string-array name="blood_groups">
+
         <item>B+</item>
         <item>O+</item>
         <item>A+</item>
@@ -66,4 +70,6 @@
         <item>A-</item>
         <item>AB-</item>
     </string-array>
+    <string name="title_rough_list">Items</string>
+    <string name="title_rough_detail">rough Detail</string>
 </resources>
