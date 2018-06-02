@@ -14,8 +14,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,9 +31,12 @@ public class HomeFragment extends Fragment {
 
     private RecyclerView mRecyclerView;
     private UserAdapter mAdapter;
-    private List<OtherUsers> mOtherUsersList = new ArrayList<>();
+    private List<Donors> mDonorsArrayList = new ArrayList<>();
     private LinearLayout mContactLayout;
     private FloatingActionButton mfilterButton;
+    private FirebaseDatabase mDatabase;
+    private DatabaseReference mDatabaseReference;
+    private FirebaseAuth mAuth;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -43,7 +52,7 @@ public class HomeFragment extends Fragment {
 
         mfilterButton = view.findViewById(R.id.filter_fab);
         mRecyclerView = view.findViewById(R.id.recycler_View);
-        mAdapter = new UserAdapter(mOtherUsersList);
+        mAdapter = new UserAdapter(mDonorsArrayList);
         mRecyclerView.setHasFixedSize(true);
         final RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity()
                 .getApplicationContext());
@@ -53,8 +62,6 @@ public class HomeFragment extends Fragment {
                 .getApplicationContext(), LinearLayoutManager.VERTICAL));
 
 
-        //TODO:Above comment does not work,implement:  When one list name is opened other should
-        // get closed.
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
         mRecyclerView.addOnItemTouchListener(new RecyclerTouchListener(getActivity()
                 .getApplicationContext(), mRecyclerView, new RecyclerTouchListener.ClickListener() {
@@ -62,12 +69,20 @@ public class HomeFragment extends Fragment {
             public void onClick(View view, int position) {
                 Toast.makeText(getActivity().getApplicationContext(), position + "selected", Toast
                         .LENGTH_SHORT).show();
-
+                showButtomSheetDialogFragment();
             }
         }));
         mRecyclerView.setAdapter(mAdapter);
-        prepareData();
+        //ToDo receive from user
+        String receiverBldGrp, receiverLoc, receiverId;
+        receiverBldGrp = "B+";
+        receiverLoc = "Jaipur";
+        mAuth = FirebaseAuth.getInstance();
+        receiverId = mAuth.getUid();
 
+        prepareData(receiverBldGrp, receiverLoc, receiverId);
+
+        //TODO: Implement floating action button on click listener
         mfilterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -76,74 +91,39 @@ public class HomeFragment extends Fragment {
         });
     }
 
-    private void prepareData() {
-        OtherUsers users = new OtherUsers();
-        users.setName("Shubham");
-        mOtherUsersList.add(users);
+    public void showButtomSheetDialogFragment() {
+        BottomSheetFragment bottomSheetFragment = new BottomSheetFragment();
+        bottomSheetFragment.show(getFragmentManager(), bottomSheetFragment.getTag());
+    }
 
-        users = new OtherUsers();
-        users.setName("Shubham");
-        mOtherUsersList.add(users);
+    private void prepareData(final String recBldGpr, final String recLoc, final String recId) {
+        mDatabase = FirebaseDatabase.getInstance();
+        mDatabaseReference = mDatabase.getReference("users");
+        mDatabaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                    String uid = dataSnapshot1.getKey();
+                    Log.d("data uid", uid);
 
-        users = new OtherUsers();
-        users.setName("Shubham");
-        mOtherUsersList.add(users);
+                    UserDetails user = dataSnapshot1.getValue(UserDetails.class);
+                    if (user.getCity().equals(recLoc) && user.getBloodGrp().equals(recBldGpr) &&
+                            user.isEligible() && !uid.equals(recId)) {
 
-        users = new OtherUsers();
-        users.setName("Shubham");
-        mOtherUsersList.add(users);
+                        Donors donors = dataSnapshot1.getValue(Donors.class);
+                        mDonorsArrayList.add(donors);
 
-        users = new OtherUsers();
-        users.setName("Shubham");
-        mOtherUsersList.add(users);
+                        mAdapter.notifyDataSetChanged();
+                    }
 
-        users = new OtherUsers();
-        users.setName("Shubham");
-        mOtherUsersList.add(users);
+                }
+            }
 
-        users = new OtherUsers();
-        users.setName("Shubham");
-        mOtherUsersList.add(users);
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
 
-        users = new OtherUsers();
-        users.setName("Shubham");
-        mOtherUsersList.add(users);
-
-        users = new OtherUsers();
-        users.setName("Shubham");
-        mOtherUsersList.add(users);
-        users = new OtherUsers();
-        users.setName("Shubham");
-        mOtherUsersList.add(users);
-        users = new OtherUsers();
-        users.setName("Shubham");
-        mOtherUsersList.add(users);
-        users = new OtherUsers();
-        users.setName("Shubham");
-        mOtherUsersList.add(users);
-        users = new OtherUsers();
-        users.setName("Shubham");
-        mOtherUsersList.add(users);
-        users = new OtherUsers();
-        users.setName("Shubham");
-        mOtherUsersList.add(users);
-        users = new OtherUsers();
-        users.setName("Shubham");
-        mOtherUsersList.add(users);
-        users = new OtherUsers();
-        users.setName("Shubham");
-        mOtherUsersList.add(users);
-        users = new OtherUsers();
-        users.setName("Shubham");
-        mOtherUsersList.add(users);
-        users = new OtherUsers();
-        users.setName("Shubham");
-        mOtherUsersList.add(users);
-        users = new OtherUsers();
-        users.setName("Shubham");
-        mOtherUsersList.add(users);
-
-        mAdapter.notifyDataSetChanged();
+            }
+        });
     }
 
 }

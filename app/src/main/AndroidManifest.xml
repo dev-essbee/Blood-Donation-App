@@ -13,7 +13,9 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".SignInActivity"
-            android:screenOrientation="sensorPortrait"></activity>
+            android:screenOrientation="sensorPortrait" >
+
+        </activity>
         <activity
             android:name=".MainActivity"
             android:screenOrientation="sensorPortrait">
@@ -22,6 +24,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity
             android:name=".EligibilityActivity"
@@ -31,7 +34,7 @@
             android:screenOrientation="sensorPortrait" />
         <activity
             android:name=".UserProfileActivity"
-            android:screenOrientation="sensorPortrait"></activity>
+            android:screenOrientation="sensorPortrait" />
 
         <meta-data
             android:name="com.google.android.gms.version"
@@ -40,19 +43,7 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAgpe3IiQUw4cKtVZcvWIXxy4vzCkJJ9sw" />
 
-        <activity
-            android:name=".roughListActivity"
-            android:label="@string/title_rough_list"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity
-            android:name=".roughDetailActivity"
-            android:label="@string/title_rough_detail"
-            android:parentActivityName=".roughListActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.dev.sb.blooddonationapp.roughListActivity" />
-        </activity>
+
     </application>
 
 </manifest>

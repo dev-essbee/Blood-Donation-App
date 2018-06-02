@@ -158,7 +158,7 @@ public class UserProfileActivity extends AppCompatActivity {
         }
         return ID;
     }
-//TODO: Seprate data seperately as private meta and public.
+//TODO: Seperate data seperately as private meta and public.
     private void saveData(final String ID) {
         if (ID != null) {
             mDatabase = FirebaseDatabase.getInstance().getReference("users");

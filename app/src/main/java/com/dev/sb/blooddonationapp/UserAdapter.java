@@ -12,7 +12,7 @@ import android.widget.TextView;
 import java.util.List;
 
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.MyViewHolder> {
-    private List<OtherUsers> userList;
+    private List<Donors> userList;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public TextView name;
@@ -25,7 +25,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.MyViewHolder> 
         }
     }
 
-    public UserAdapter(List<OtherUsers> userList) {
+    public UserAdapter(List<Donors> userList) {
         this.userList = userList;
     }
     @NonNull
@@ -38,7 +38,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.MyViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        OtherUsers users=userList.get(position);
+        Donors users=userList.get(position);
         String name=users.getName();
         holder.name.setText(name);
     }

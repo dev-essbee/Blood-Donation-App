@@ -40,7 +40,7 @@
     <string name="lbl_forgot_password">Forgot password?</string>
     <string name="forgot_password_msg">We just need your registered Email Id to sent you password reset instructions.</string>
     <string name="enter_email">Enter email address!</string>
-
+    <string name="share_chooser_title">Share:</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -72,4 +72,10 @@
     </string-array>
     <string name="title_rough_list">Items</string>
     <string name="title_rough_detail">rough Detail</string>
+    <string name="title_donor_list">Donors</string>
+    <string name="title_donor_detail">Donor Detail</string>
+    <string name="call">Call</string>
+    <string name="message">Message</string>
+    <string name="emailhim">E-mail</string>
+    <string name="share">Share Details</string>
 </resources>
