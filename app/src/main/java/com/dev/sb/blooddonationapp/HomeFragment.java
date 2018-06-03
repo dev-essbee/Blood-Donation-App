@@ -28,6 +28,8 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import static android.app.Activity.RESULT_OK;
+
 
 public class HomeFragment extends Fragment {
 
@@ -105,11 +107,17 @@ public class HomeFragment extends Fragment {
                 startActivityForResult(intent, ELIGIBILITY_REQUEST_CODE);
             }
         });
+        mEligibleLater.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mEligibility.setVisibility(View.GONE);
+            }
+        });
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == ELIGIBILITY_REQUEST_CODE) {
+        if (requestCode == ELIGIBILITY_REQUEST_CODE && resultCode==RESULT_OK) {
             eligibilityValue=data.getIntExtra("result",0);
             Log.d("eligi :",eligibilityValue +"");
             mDatabaseReference.child(mAuth.getUid()).child("eligible").setValue(eligibilityValue);

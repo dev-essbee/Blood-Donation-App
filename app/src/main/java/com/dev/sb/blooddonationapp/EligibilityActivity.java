@@ -16,7 +16,7 @@ public class EligibilityActivity extends AppCompatActivity {
     private Button mEligibleButton, mNotEligibleButton;
     private EligibilityAdapter mAdapter;
     private List<String> mEligibilityArrayList = new ArrayList<>();
-    private final int ELIGIBILITY_REQUEST_CODE = 101;
+    //private final int ELIGIBILITY_REQUEST_CODE = 101;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +59,8 @@ public class EligibilityActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 intent.putExtra("result", 1);
-                setResult(ELIGIBILITY_REQUEST_CODE, intent);
+                setResult(RESULT_OK, intent);
+
                 finish();
             }
         });
@@ -68,7 +69,7 @@ public class EligibilityActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 intent.putExtra("result", -1);
-                setResult(ELIGIBILITY_REQUEST_CODE, intent);
+                setResult(RESULT_OK, intent);
                 finish();
             }
         });
