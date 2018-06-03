@@ -12,12 +12,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
     <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/eligible_ask"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:visibility="visible"
-        android:layout_margin="@dimen/normal_margin">
+        android:visibility="gone"
+        android:layout_margin="@dimen/normal_margin"
+        >
 
         <TextView
             android:layout_width="wrap_content"
@@ -25,11 +26,13 @@
 
         <Button
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:id="@+id/eligible_fill"/>
 
         <Button
             android:layout_width="wrap_content"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:id="@+id/eligible_later"/>
     </LinearLayout>
 
     <android.support.v7.widget.RecyclerView

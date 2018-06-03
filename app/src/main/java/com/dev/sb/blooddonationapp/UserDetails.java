@@ -4,13 +4,13 @@ import android.util.Log;
 
 public class UserDetails {
     private String name, age, phNo, gender, bloodGrp, city, email;
-    private boolean eligible;
-
-    public boolean isEligible() {
+    private int eligible;
+//ToDo :ensure name is in sentance case
+    public int getEligible() {
         return eligible;
     }
 
-    public void setEligible(boolean eligible) {
+    public void setEligible(int eligible) {
         this.eligible = eligible;
     }
 

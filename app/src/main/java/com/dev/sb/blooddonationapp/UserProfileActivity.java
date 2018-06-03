@@ -52,7 +52,7 @@ public class UserProfileActivity extends AppCompatActivity {
         }
     }
 
-    //TODO: Add whatsapp button along with call, messagae, email and share
+   //todo: verification class
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,8 +86,9 @@ public class UserProfileActivity extends AppCompatActivity {
         mSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getData();
+                getData();//Todo: check data
                 saveData(setUpFirebase());
+                startActivity(new Intent(getApplicationContext(),MainActivity.class));
             }
         });
         mInputLocation.setOnClickListener(new View.OnClickListener() {
@@ -141,12 +142,13 @@ public class UserProfileActivity extends AppCompatActivity {
 
     //TODO:Verify phone number and email id.
     private void getData() {
+        //eligibility=1:eligible, 0: not filled, -1: ineligible
         user.setName(mInputName.getText().toString().trim());
         user.setAge(mInputAge.getText().toString().trim());
         user.setPhNo(mInputPhn.getText().toString().trim());
-        user.setEligible(false);
+        user.setEligible(0);
     }
-
+//todo: offline data persistence firebase
     private String setUpFirebase() {
         mAuth = FirebaseAuth.getInstance();
         final String ID;
@@ -158,7 +160,7 @@ public class UserProfileActivity extends AppCompatActivity {
         }
         return ID;
     }
-//TODO: Seperate data seperately as private meta and public.
+
     private void saveData(final String ID) {
         if (ID != null) {
             mDatabase = FirebaseDatabase.getInstance().getReference("users");

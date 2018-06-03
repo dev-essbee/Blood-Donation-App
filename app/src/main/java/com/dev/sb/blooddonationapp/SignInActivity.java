@@ -42,6 +42,7 @@ public class SignInActivity extends AppCompatActivity
                 mAuth = FirebaseAuth.getInstance();
 
 
+
 //TODO: Launcher activity:Main activity
                 mSignInButton.setOnClickListener(new View.OnClickListener()
                     {
