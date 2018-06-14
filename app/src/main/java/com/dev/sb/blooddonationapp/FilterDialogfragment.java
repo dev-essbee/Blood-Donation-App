@@ -63,7 +63,7 @@ public class FilterDialogfragment extends DialogFragment {
             }
         });
 
-        Log.d("execution", "onCreateDialog");
+
         return builder.create();
     }
 
@@ -73,7 +73,7 @@ public class FilterDialogfragment extends DialogFragment {
         View v = super.onCreateView(inflater, container, savedInstanceState);
 
         if (getTargetFragment().toString().contains("BloodBanksFragment")) {
-            Log.d("dialog", getTargetFragment().toString());
+
             mBldGrpLayout.setVisibility(View.GONE);
 
         } else {
@@ -98,9 +98,9 @@ public class FilterDialogfragment extends DialogFragment {
                     .build(getActivity());
             startActivityForResult(intent, PLACE_REQUEST_CODE);
         } catch (GooglePlayServicesRepairableException e) {
-            Log.e("Autocomplete Location", e.toString());
+            e.printStackTrace();
         } catch (GooglePlayServicesNotAvailableException e) {
-            Log.e("Autocomplete Location", e.toString());
+            e.printStackTrace();
         }
 
     }
@@ -129,19 +129,19 @@ public class FilterDialogfragment extends DialogFragment {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == PLACE_REQUEST_CODE) {
             if (resultCode == RESULT_OK) {
-                //Place place = PlaceAutocomplete.getPlace(this, data);
+
                 Place place = PlaceAutocomplete.getPlace(getActivity(), data);
                 newLocation = place.getName().toString();
                 mLocation.setText(newLocation);
 
-                Log.d("Location Complete", newLocation);
+
             } else if (resultCode == PlaceAutocomplete.RESULT_ERROR) {
                 Status status = PlaceAutocomplete.getStatus(getActivity(), data);
-                Log.d("Location Error", status.getStatusMessage());
+
 
             } else if (resultCode == RESULT_CANCELED) {
-                // The user canceled the operation.
-                Log.d("Location", "Request cancelled");
+
+
             }
         }
     }

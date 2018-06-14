@@ -56,7 +56,7 @@ public class BloodBankAdapter extends RecyclerView.Adapter<BloodBankAdapter.MyVi
                     v.getContext().startActivity(callIntent);
                 }
             }
-        });//todo remove bloodbank from name for maps search
+        });
         holder.mNavigate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

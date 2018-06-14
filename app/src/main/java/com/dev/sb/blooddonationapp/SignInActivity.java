@@ -40,9 +40,9 @@ public class SignInActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         if (mAuth.getCurrentUser() != null) {
-            Log.d("user", "already signed in");
+
         } else {
-            Log.d("user", " signed out");
+
         }
         mEmailInput = findViewById(R.id.input_signin_email);
         mPasswordInput = findViewById(R.id.input_signin_password);
@@ -65,7 +65,7 @@ public class SignInActivity extends AppCompatActivity {
                 snackbar.show();
             }
         }
-//TODO: Launcher activity:Main activity
+
         mSignInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -91,7 +91,7 @@ public class SignInActivity extends AppCompatActivity {
                                         mPasswordInput.setError(getString(R.string.minimum_password));
                                         mSignInProgress.setVisibility(View.INVISIBLE);
                                     } else {
-                                        Log.d("error", task.getException().toString());
+
                                         showErrorMessage(task.getException().toString());
                                         mPasswordInput.setText("");
                                         mSignInProgress.setVisibility(View.INVISIBLE);
@@ -149,14 +149,14 @@ public class SignInActivity extends AppCompatActivity {
 
         @Override
         public void afterTextChanged(Editable s) {
-            Log.d("text", "text changed");
+
             if (s.toString().length() >= 6) {
                 email = mEmailInput.getText().toString().trim();
-                Log.d("text", "text changed" + email);
+
                 if (checkEmail()) {
                     mSignInButton.setBackground(getResources().getDrawable(R.drawable.pri_button));
                     mSignInButton.setEnabled(true);
-                    Log.d("text", "color");
+
                 } else {
                     mSignInButton.setBackground(getResources().getDrawable(R.drawable.pri_button_inactive));
                     mSignInButton.setEnabled(false);
@@ -181,14 +181,14 @@ public class SignInActivity extends AppCompatActivity {
 
         @Override
         public void afterTextChanged(Editable s) {
-            Log.d("text", "email changed");
+
             if (mPasswordInput.getText().toString().length() >= 6) {
                 email = s.toString().trim();
                 if (checkEmail()) {
                     mSignInButton.setBackground(getResources().getDrawable(R.drawable.pri_button));
                     mSignInButton.setEnabled(true);
 
-                    Log.d("text", "email color");
+
                 } else {
                     mSignInButton.setBackground(getResources().getDrawable(R.drawable.pri_button_inactive));
                     mSignInButton.setEnabled(false);
@@ -202,10 +202,10 @@ public class SignInActivity extends AppCompatActivity {
 
     private Boolean checkEmail() {
         if (!TextUtils.isEmpty(email) && email.contains("@") && email.contains(".")) {
-            Log.d("text", "email id verified");
+
             return true;
         } else {
-            Log.d("text", "email id wrong");
+
             return false;
         }
     }

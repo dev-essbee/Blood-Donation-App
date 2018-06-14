@@ -52,15 +52,14 @@ public class ChangePassDialogFragment extends DialogFragment {
                             final String newPass = mNewPassword.getText().toString().trim();
                             final String oldPass = mOldPassword.getText().toString().trim();
 
-                            Log.d("pass", newPass + " " + oldPass);
-                            Log.d("user", "button pressed");
+
                             Intent i = new Intent().putExtra("pass", newPass);
                             i.putExtra("oldPass", oldPass);
-                            //todo check for null gettargetfragment
+
                             getTargetFragment().onActivityResult(getTargetRequestCode(),
                                     Activity.RESULT_OK, i);
                             dismiss();
-                            Log.d("pass", "changed");
+
                         }
                     }
                 })
@@ -73,6 +72,6 @@ public class ChangePassDialogFragment extends DialogFragment {
         return builder.create();
     }
 
-//todo reauthenticate user if password change or delete account or email change
+
 
 }

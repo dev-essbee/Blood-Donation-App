@@ -42,5 +42,5 @@ public class RecyclerTouchListener implements RecyclerView.OnItemTouchListener {
     public interface ClickListener{
         void onClick(View view, int position);
     }
-    //TODO remove onLongClick if long click is not needed.
+
 }

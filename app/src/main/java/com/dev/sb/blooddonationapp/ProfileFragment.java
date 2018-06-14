@@ -59,7 +59,7 @@ import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
 
 
-public class ProfileFragment extends Fragment //implements DeleteAccountDialogFragment.DeleteAccountDialogListener
+public class ProfileFragment extends Fragment
 {
     private TextView mNameTextView;
     private Button mDeleteButton, mChangeButton, mLogoutButton;
@@ -114,7 +114,7 @@ public class ProfileFragment extends Fragment //implements DeleteAccountDialogFr
 
     }
 
-    //todo email is verified then show as donor and check verified for =1
+
 
     @Override
     public void onPrepareOptionsMenu(Menu menu) {
@@ -124,7 +124,7 @@ public class ProfileFragment extends Fragment //implements DeleteAccountDialogFr
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
         return inflater.inflate(R.layout.fragment_profile, container, false);
 
     }
@@ -151,9 +151,8 @@ public class ProfileFragment extends Fragment //implements DeleteAccountDialogFr
 
         mActivity = getActivity();
         setHasOptionsMenu(true);
-        // todo To make text view uneditable
-       /* mPhoneEditText.setTag(mPhoneEditText.getKeyListener());
-        mPhoneEditText.setKeyListener(null);*/
+
+
         mShimmerFrameLayout = view.findViewById(R.id.profile_shimmer);
         mShimmerFrameLayout.startShimmer();
         mPhoneEditText.addTextChangedListener(phoneWatcher);
@@ -170,7 +169,7 @@ public class ProfileFragment extends Fragment //implements DeleteAccountDialogFr
 
         passwordChanged = false;
         logOut = false;
-        //todo: add i'm now eligible
+
         mRetryButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -236,16 +235,9 @@ public class ProfileFragment extends Fragment //implements DeleteAccountDialogFr
         mPhoneVerify.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("text", "phone clicked");
 
-// todo For making text view  editable
-/*                mPhoneEditText.setKeyListener((KeyListener) mPhoneEditText.getTag());
-                mPhoneEditText.requestFocus();
-                mPhoneEditText.selectAll();
-                InputMethodManager inputMethodManager=(InputMethodManager)mActivity
-                        .getSystemService
-                        (Context.INPUT_METHOD_SERVICE);
-                inputMethodManager.showSoftInput(mPhoneEditText,InputMethodManager.SHOW_IMPLICIT);*/
+
+
                 if (phoneVerified.equals("1")) {
                     Toast.makeText(mActivity.getApplicationContext(), "Mobile Number already verified", Toast
                             .LENGTH_SHORT).show();
@@ -294,7 +286,7 @@ public class ProfileFragment extends Fragment //implements DeleteAccountDialogFr
                 dialogFragment.show(getFragmentManager(), "change email");
             }
         });
-//todo handle excpetion of firebase in login logout and data uses
+
 
 
     }
@@ -319,7 +311,7 @@ public class ProfileFragment extends Fragment //implements DeleteAccountDialogFr
                             if (task.isSuccessful()) {
                                 updatePass(pass);
 
-                                //   mConstraintLayout.setVisibility(View.GONE);
+
                             } else {
                                 Toast.makeText(mActivity, "Wrong existing password!", Toast
                                         .LENGTH_SHORT).show();
@@ -395,11 +387,11 @@ public class ProfileFragment extends Fragment //implements DeleteAccountDialogFr
             } else if (resultCode == PlaceAutocomplete.RESULT_ERROR) {
                 Status status = PlaceAutocomplete.getStatus(mActivity, data);
 
-                Log.d("Location Error", status.getStatusMessage());
+
 
             } else if (resultCode == RESULT_CANCELED) {
-                // The user canceled the operation.
-                Log.d("Location", "Request cancelled");
+
+
             }
         } else if (requestCode == ELIGIBILITY_CHANGE) {
             if (resultCode == RESULT_OK) {
@@ -442,11 +434,11 @@ public class ProfileFragment extends Fragment //implements DeleteAccountDialogFr
                     verified = dataSnapshot.child(id).child("verified").getValue(String.class);
                     city = dataSnapshot.child(id).child("city").getValue(String.class);
                     String temp = dataSnapshot.child(id).child("dob").getValue(String.class);
-                    Log.d("temp", temp + " " + id);
+
                     enteredMonth = Integer.parseInt(temp.substring(0, 2));
                     intEnteredYear = Integer.parseInt(temp.substring(3));
-                    Log.d("data change", email + phoneNo);
-//todo check old age in donor fragment also when obtaining data of donors
+
+
                     mEmailEditText.setText(email);
                     mCityEditText.setText(city);
 
@@ -505,7 +497,7 @@ public class ProfileFragment extends Fragment //implements DeleteAccountDialogFr
     FirebaseAuth.AuthStateListener mAuthStateListener = new FirebaseAuth.AuthStateListener() {
         @Override
         public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-            Log.d("user", "in auth state listener");
+
             FirebaseUser user = firebaseAuth.getCurrentUser();
             if (user == null) {
                 if (logOut) {
@@ -515,7 +507,7 @@ public class ProfileFragment extends Fragment //implements DeleteAccountDialogFr
                     mAuth.removeAuthStateListener(mAuthStateListener);
                     startActivity(new Intent(mActivity, SignInActivity.class));
                     mActivity.finish();
-                    //todo use snackbar instead of toast
+
                 }
             }
         }
@@ -528,13 +520,13 @@ public class ProfileFragment extends Fragment //implements DeleteAccountDialogFr
         mDatabase.child(id).child("phNo").setValue(verifiedPhoneNo);
     }
 
-    //todo: using birthdate instead of age
+
     private void postPhoneVerificationSettings(String status) {
         if (status.equals("1")) {
             new ProfileFragment().successVerification();
         }
     }
-//todo dialog in profile keep edition or discard
+
 
     private TextWatcher phoneWatcher = new TextWatcher() {
         @Override
@@ -553,14 +545,14 @@ public class ProfileFragment extends Fragment //implements DeleteAccountDialogFr
                 mPhoneVerify.setText(getResources().getText(R.string.phone_verified_txtView));
                 mPhoneVerify.setTextColor(getResources().getColor(R.color.button_boundary));
                 phoneVerified = "1";
-                Log.d("verify", "aftertextchangedtotal");
+
             } else
 
             {
                 mPhoneVerify.setText(getResources().getText(R.string.verify));
                 mPhoneVerify.setTextColor(getResources().getColor(R.color.primary_dark));
                 phoneVerified = "0";
-                Log.d("verify", "aftertextchangedpartial");
+
             }
 
         }
@@ -598,7 +590,7 @@ public class ProfileFragment extends Fragment //implements DeleteAccountDialogFr
             PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
                 @Override
                 public void onVerificationCompleted(PhoneAuthCredential phoneAuthCredential) {
-                    Log.d("verify", "phone no verified");
+
                     Toast.makeText(getContext(), "Phone Number Verified!", Toast
                             .LENGTH_SHORT).show();
                     verifiedPhoneNo = tempPhoneNo;
@@ -616,7 +608,7 @@ public class ProfileFragment extends Fragment //implements DeleteAccountDialogFr
                 @Override
                 public void onCodeSent(String s, PhoneAuthProvider.ForceResendingToken forceResendingToken) {
                     super.onCodeSent(s, forceResendingToken);
-                    Log.d("verify", "code sent");
+
                     Toast.makeText(getContext(), "Verification Code sent", Toast
                             .LENGTH_SHORT).show();
                 }
@@ -637,11 +629,10 @@ public class ProfileFragment extends Fragment //implements DeleteAccountDialogFr
         int currentYear = calendar.get(Calendar.YEAR);
         int currentMonth = calendar.get(Calendar.MONTH);
         currentMonth++;
-        Log.d("date", currentMonth + " " + currentYear + " " + enteredMonth + " " + intEnteredYear +
-                "");
+
         if (currentYear - intEnteredYear == 18) {
             if (currentMonth <= enteredMonth) {
-                Log.d("date", "true");
+
                 return "-3";
             }
         } else if (currentYear - intEnteredYear < 18) {
@@ -663,13 +654,12 @@ public class ProfileFragment extends Fragment //implements DeleteAccountDialogFr
         mUser.updatePassword(pass).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
-                Log.d("user", "in activity result down");
 
 
                 if (task.isSuccessful()) {
                     Toast.makeText(mActivity, "Password Changed Successfully.",
                             Toast.LENGTH_SHORT).show();
-                    Log.d("user", "in activity result down2");
+
                     mAuth.signOut();
                     mProgressBar.setVisibility(View.GONE);
                     activateTouch();
@@ -704,13 +694,13 @@ public class ProfileFragment extends Fragment //implements DeleteAccountDialogFr
 
     private void changeEmail() {
         final String tempEmail = mEmailEditText.getText().toString().trim();
-        Log.d("newemailclicked", "" + tempEmail + email);
+
         mUser.updateEmail(tempEmail)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()) {
-                            Log.d("newemail", "" + tempEmail + email);
+
                             email = tempEmail;
                             mEmailEditText.setText(email);
                             mProgressBar.setVisibility(View.GONE);
@@ -724,7 +714,7 @@ public class ProfileFragment extends Fragment //implements DeleteAccountDialogFr
                                 Toast.makeText(mActivity,"The email address is already in use by" +
                                         " another account.",Toast.LENGTH_LONG).show();
                             }
-                            Log.d("email",task.getException().toString());
+
                         }
                     }
 

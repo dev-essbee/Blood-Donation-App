@@ -24,7 +24,7 @@ public class ResetPasswordActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private android.support.v7.app.ActionBar mActionBar;
     private String intentActivity;
-//todo handle reset password in app.
+
 
     @Override
     public boolean onSupportNavigateUp() {
@@ -79,7 +79,7 @@ public class ResetPasswordActivity extends AppCompatActivity {
                                                 .this, SignInActivity.class));
                                         finish();
                                     } else {
-                                        Log.d("error", task.getException().toString());
+
                                         showErrorMessage(task.getException().toString());
 
                                     }
@@ -124,7 +124,7 @@ public class ResetPasswordActivity extends AppCompatActivity {
                     mResetButton.setBackground(getResources().getDrawable(R.drawable.pri_button));
                     mResetButton.setEnabled(true);
 
-                    Log.d("text", "email color");
+
                 } else {
                     mResetButton.setBackground(getResources().getDrawable(R.drawable.pri_button_inactive));
                     mResetButton.setEnabled(false);
@@ -135,10 +135,10 @@ public class ResetPasswordActivity extends AppCompatActivity {
 
     private Boolean checkEmail(String email) {
         if (!TextUtils.isEmpty(email) && email.contains("@") && email.contains(".")) {
-            Log.d("text", "email id verified");
+
             return true;
         } else {
-            Log.d("text", "email id wrong");
+
             return false;
         }
     }

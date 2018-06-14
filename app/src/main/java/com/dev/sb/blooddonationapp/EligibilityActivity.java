@@ -23,7 +23,7 @@ public class EligibilityActivity extends AppCompatActivity {
     private EligibilityAdapter mAdapter;
     private List<String> mEligibilityArrayList = new ArrayList<>();
     private String callingIntent = "";
-    //private final int ELIGIBILITY_REQUEST_CODE = 101;
+
     private ConstraintLayout mButtonLayout;
     private TextView mIndText;
     private ActionBar mActionBar;
@@ -42,7 +42,7 @@ public class EligibilityActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_eligibility);
-//todo add back button to all the activities
+
         mActionBar = getSupportActionBar();
 
         mIndText = findViewById(R.id.hint_Text);
@@ -65,7 +65,7 @@ public class EligibilityActivity extends AppCompatActivity {
         if(callingIntent.equals("menu")){
          mButtonLayout.setVisibility(View.GONE);
         }
-        Log.d("call",callingIntent.toString());
+
         String[] temp = getResources().getStringArray(R.array.eligibility_criteria);
         for (int i = 0; i < 14; i++) {
             mEligibilityArrayList.add(temp[i]);
@@ -75,7 +75,7 @@ public class EligibilityActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (callingIntent.equals("HomeFragment")) {
-                    Log.d("result", getCallingActivity().getClassName());
+
                     Intent intent = new Intent(EligibilityActivity.this, HomeFragment.class);
                     intent.putExtra("result", "1");
                     setResult(RESULT_OK, intent);
@@ -111,18 +111,13 @@ public class EligibilityActivity extends AppCompatActivity {
         @Override
         public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
             super.onScrollStateChanged(recyclerView, newState);
-            if (newState == RecyclerView.SCROLL_STATE_DRAGGING) {//Log.d("scroll","drag");
+            if (newState == RecyclerView.SCROLL_STATE_DRAGGING) {
                 mButtonLayout.setElevation(4 * getApplicationContext().getResources()
                         .getDisplayMetrics().density);
                 mIndText.setElevation(4 * getApplicationContext().getResources()
                         .getDisplayMetrics().density);
             }
-            if (newState == RecyclerView.SCROLL_STATE_IDLE) {//Log.d("scroll","idle");
 
-            }
-            if (newState == RecyclerView.SCROLL_STATE_SETTLING) {//Log.d("scroll","settle");
-
-            }
             mEligibleButton.setEnabled(false);
             mNotEligibleButton.setEnabled(false);
             mNotEligibleButton.setBackground(getResources().getDrawable(R.drawable.ter_button_inactive));
@@ -130,7 +125,7 @@ public class EligibilityActivity extends AppCompatActivity {
             mEligibleButton.setBackground(getResources().getDrawable(R.drawable.pri_button_inactive));
             mEligibleButton.setTextColor(getResources().getColor(R.color.icons));
             if (!recyclerView.canScrollVertically(1)) {
-                Log.d("scroll", "end");
+
                 mEligibleButton.setEnabled(true);
                 mNotEligibleButton.setEnabled(true);
                 mNotEligibleButton.setBackground(getResources().getDrawable(R.drawable.ter_button_active));
@@ -141,11 +136,7 @@ public class EligibilityActivity extends AppCompatActivity {
 
         }
 
-        @Override
-        public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-            super.onScrolled(recyclerView, dx, dy);
-            //Log.d("scroll",dx+" "+dy);
-        }
+
     };
 
 

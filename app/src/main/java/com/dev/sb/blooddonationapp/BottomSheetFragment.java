@@ -106,7 +106,7 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
             url = "https://api.whatsapp.com/send?phone=" + "+91" + phNo + "&text=" +
                     URLEncoder.encode(msgText, "UTF-8");
         } catch (Exception e) {
-            Log.e("Message", e.toString());
+            e.printStackTrace();
         }
         Intent msgIntent = new Intent(Intent.ACTION_VIEW);
         msgIntent.setPackage("com.whatsapp");

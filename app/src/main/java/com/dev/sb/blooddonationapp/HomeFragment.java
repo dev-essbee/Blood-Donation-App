@@ -59,7 +59,7 @@ public class HomeFragment extends Fragment {
     private String recBldGrp;
     private String recCity;
     private String recId;
-  /*  private ConstraintLayout mEligibility;*/
+
     private Button mEligibleFillPositive, mEligibleLaterPositive;
     private Button mEligibleFillNegative, mEligibleLaterNegative;
     private String eligibilityValue = "1";
@@ -77,11 +77,11 @@ public class HomeFragment extends Fragment {
     private ConstraintLayout mEligibilityPositive,mEligibilityNegative;
 
 
-    //todo taking name as input first character should be albhabet
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
         View mInflate = inflater.inflate(R.layout.fragment_home, container, false);
         return mInflate;
     }
@@ -103,7 +103,7 @@ public class HomeFragment extends Fragment {
 
     }
 
-    //todo intent to email app and verification email click verification link and open app signed in
+
     @Override
     public void onResume() {
         super.onResume();
@@ -112,7 +112,7 @@ public class HomeFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-      /*  mEligibility = view.findViewById(R.id.eligible_ask);*/
+
 
 
         mPositiveEligibleLayout=view.findViewById(R.id.positive_layout_eligible);
@@ -137,7 +137,7 @@ public class HomeFragment extends Fragment {
         mNegativeImageView = view.findViewById(R.id.negative_image_home);
         mNegativeTextView = view.findViewById(R.id.negative_txt_home);
 
-//mShimmerFrameLayout.startShimmer();
+
         mRecyclerView = view.findViewById(R.id.recycler_View);
         mAdapter = new DonorAdapter(mDonorsArrayList);
         mRecyclerView.setHasFixedSize(true);
@@ -162,15 +162,8 @@ public class HomeFragment extends Fragment {
         }));
         mRecyclerView.setAdapter(mAdapter);
         checkAndDisplay();
-       /* if (checkConnection()) {
-            prepareData();
-        } else {
-            mShimmerFrameLayout.stopShimmer();
-            mShimmerFrameLayout.setVisibility(View.GONE);
-            Toast.makeText(getActivity(), "Please check your Internet Connection.", Toast
-                    .LENGTH_LONG).show();
-        }*/
-        //TODO: Implement floating action button on click listener
+
+
 
 
         mEligibleFillPositive.setOnClickListener(new View.OnClickListener()
@@ -226,7 +219,7 @@ public class HomeFragment extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == ELIGIBILITY_REQUEST_CODE && resultCode == RESULT_OK) {
             eligibilityValue = data.getStringExtra("result");
-            Log.d("eligi :", eligibilityValue + "");
+
             mDatabaseReference.child(mAuth.getUid()).child("eligible").setValue(eligibilityValue);
             visibility(eligibilityValue);
 
@@ -235,7 +228,7 @@ public class HomeFragment extends Fragment {
             if (resultCode == RESULT_OK) {
                 newLoc = data.getStringExtra("loc");
                 newBldGrp = data.getStringExtra("bldGrp");
-                //   prepareData();
+
                 checkAndDisplay();
             }
         }
@@ -250,9 +243,7 @@ public class HomeFragment extends Fragment {
         bottomSheetFragment.setArguments(args);
         bottomSheetFragment.show(getFragmentManager(), bottomSheetFragment.getTag());
 
-    }//todo data updated toast message on updating data everywhere like in recycler view
-
-    //todo create on stop to clear all global variables in all activities
+    }
     private void prepareData() {
         mDonorsArrayList.clear();
         mDatabaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -260,7 +251,7 @@ public class HomeFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (mAuth.getCurrentUser() != null) {
                     if (!dataSnapshot.child(mAuth.getUid()).exists()) {
-                        Log.d("user", "data doesn't exists");
+
                         try {
                             startActivity(new Intent
                                     (mContext, UserProfileActivity.class));
@@ -269,7 +260,7 @@ public class HomeFragment extends Fragment {
                             e.printStackTrace();
                         }
                     } else {
-                        Log.d("user", "data exist");
+
                         mDonorsArrayList.clear();
                         recId = mAuth.getUid();
                         if (recId != null) {
@@ -287,16 +278,15 @@ public class HomeFragment extends Fragment {
 
                             if (eligibilityValue != null) {
                                 visibility(eligibilityValue);
-                                Log.d("data rec", recCity + recBldGrp + "" + eligibilityValue);
+
                                 //eligibility=1:eligible, 0: not filled, -1: ineligible
                                 for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                                     String uid = dataSnapshot1.getKey();
-                                    //todo: multiple times same data if data updated in real time
-                                    //todo: test everythink without internet connectivity
+
                                     UserDetails user = dataSnapshot1.getValue(UserDetails.class);
                                     if (user.getCity().equals(recCity) && user.getBloodGrp().equals
                                             (recBldGrp) && user.getEligible().equals("1") && !uid.equals(recId)) {
-                                        Log.d("data uid", uid);
+
                                         Donors donors = dataSnapshot1.getValue(Donors.class);
                                         mDonorsArrayList.add(donors);
 

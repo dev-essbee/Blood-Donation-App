@@ -54,7 +54,7 @@ public class DeleteAccountDialogFragment extends DialogFragment {
                 .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        //  mListener.onDialogNegativeClick(DeleteAccountDialogFragment.this);
+
                     }
                 });
         return builder.create();
@@ -68,5 +68,3 @@ public class DeleteAccountDialogFragment extends DialogFragment {
 
     }
 }
-//todo https://developer.android.com/guide/topics/ui/dialogs reach creating a custom layout read
-// tip for filter

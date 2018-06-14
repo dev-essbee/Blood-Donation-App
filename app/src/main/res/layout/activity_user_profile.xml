@@ -139,8 +139,8 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:text="@string/verify"
-                    android:textStyle="bold"
                     android:textColor="@color/primary"
+                    android:textStyle="bold"
                     android:visibility="visible"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -191,12 +191,13 @@
 
         <Button
             android:id="@+id/button_submit"
+            style="@style/PriButtonInactiveStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:background="@color/accent_inactive"
             android:text="@string/submit"
             android:textAllCaps="true"
+            android:enabled="false"
             android:textColor="@android:color/white"
             android:visibility="visible"
             app:layout_constraintEnd_toStartOf="@+id/guideline2"
@@ -205,11 +206,12 @@
 
         <Button
             android:id="@+id/button_clear"
+            style="@style/SecButtonStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/sec_button"
 
+            android:layout_marginBottom="24dp"
+            android:layout_marginTop="16dp"
             android:text="@string/clear"
             android:textAllCaps="true"
             android:visibility="visible"
@@ -233,7 +235,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:focusableInTouchMode="false"
-                android:hint="@string/location" />
+                android:hint="@string/city" />
 
         </android.support.design.widget.TextInputLayout>
 

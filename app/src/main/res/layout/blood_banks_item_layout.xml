@@ -24,7 +24,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:text="Name"
+
             android:textSize="18sp"
             android:textStyle="bold"
             android:visibility="visible" />
@@ -33,7 +33,7 @@
             android:id="@+id/bld_bnk_loc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Area"
+
             android:textSize="12sp"
             android:visibility="visible" />
     </LinearLayout>
@@ -54,6 +54,7 @@
         android:focusable="true"
         android:clickable="true"
         android:tint="@color/button_boundary"
+        android:contentDescription="@string/call_button"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
@@ -69,6 +70,7 @@
         android:clickable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:contentDescription="@string/navigate_button"
         app:layout_constraintStart_toEndOf="@+id/bnk_call_button"
         app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>

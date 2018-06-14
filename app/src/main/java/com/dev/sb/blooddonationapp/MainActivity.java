@@ -35,16 +35,13 @@ public class MainActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         if (mAuth.getCurrentUser() != null) {
-            Log.i("Usersignedin", "null" + "");
+
             isUserDataExists();
         } else if (mAuth.getCurrentUser() == null) {
-            Log.i("user", "no user mainactivity");
+
             startActivity(new Intent(this, SignInActivity.class));
             finish();
         }
-
-
-//todo above function properly android splash screen or store in local storage
 
 
         actionBar = getSupportActionBar();
@@ -57,12 +54,7 @@ public class MainActivity extends AppCompatActivity {
         loadFragment(new HomeFragment());
 
     }
-    //TODO: Login activity
-    //TODO:eligibility activity
-    //TODO:user details activity
-    //TODO: Logout, delete
-    //TODO: Password Reset
-    //TODO: finish previous fragment
+
 
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener =
@@ -101,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
     private void loadFragment(Fragment fragment) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.frame_main, fragment);
-        /*transaction.addToBackStack(null);*/
+
         transaction.commit();
 
     }
@@ -113,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.child(mAuth.getUid()).exists()) {
-                    Log.d("usersignedin", "data exists" + mAuth.getUid());
+
                     city = dataSnapshot.child(mAuth.getCurrentUser().getUid()).child("city").getValue(String
                             .class);
                     SharedPreferences sharedPreferences = PreferenceManager
@@ -121,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putString(getString(R.string.city_key), city);
                     editor.apply();
-                    Log.d("city1",city);
+
                 }
             }
 

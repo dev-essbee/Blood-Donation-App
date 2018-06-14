@@ -39,7 +39,7 @@ public class SignUpActivity extends AppCompatActivity {
     private String email;
 
 
-    //todo marquee in donor name and blood bank name
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,17 +62,8 @@ public class SignUpActivity extends AppCompatActivity {
                 finish();
             }
         });
-     /*  if(mInputPassword.hasFocus()){
-           mInputPassword.setCursorVisible(true);
-       }
-       mInputPassword.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-           @Override
-           public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
 
-               return false;
-           }
-       });*/
-        //todo remove cursor from password on ok is clicked
+
         mSignUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,9 +81,8 @@ public class SignUpActivity extends AppCompatActivity {
                     return;
                 }
                 mSignUpProgress.setVisibility(View.VISIBLE);
-               /* mInputEmail.clearFocus();
-                mInputPassword.clearFocus();
-*/
+
+
                 mAuth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(SignUpActivity.this, new OnCompleteListener<AuthResult>() {
                             @Override
@@ -102,7 +92,7 @@ public class SignUpActivity extends AppCompatActivity {
                                 mInputPassword.setText("");
                                 if (!task.isSuccessful()) {
                                     Toast.makeText(SignUpActivity.this, "Sign Up Failed" + task.getException(), Toast.LENGTH_SHORT).show();
-                                    Log.d("error", task.getException().toString());
+
                                     showErrorMessage(task.getException().toString());
                                 } else {
                                     Toast.makeText(SignUpActivity.this, "done" + task.getException(), Toast.LENGTH_SHORT).show();
@@ -155,13 +145,13 @@ public class SignUpActivity extends AppCompatActivity {
 
         @Override
         public void afterTextChanged(Editable s) {
-            Log.d("text", "text changed");
+
             if (s.toString().length() >= 6) {
                 email = mInputEmail.getText().toString().trim();
-                Log.d("text", "text changed" + email);
+
                 if (checkEmail()) {
                     mSignUpButton.setBackground(getResources().getDrawable(R.drawable.pri_button));
-                    Log.d("text", "email color");
+
                     mSignUpButton.setEnabled(true);
                 } else {
                     mSignUpButton.setBackground(getResources().getDrawable(R.drawable
@@ -189,13 +179,13 @@ public class SignUpActivity extends AppCompatActivity {
 
         @Override
         public void afterTextChanged(Editable s) {
-            Log.d("text", "email changed");
+
             if (mInputPassword.getText().toString().length() >= 6) {
                 email = s.toString().trim();
                 if (checkEmail()) {
                     mSignUpButton.setBackground(getResources().getDrawable(R.drawable.pri_button));
                     mSignUpButton.setEnabled(true);
-                    Log.d("text", "email color");
+
                 } else {
                     mSignUpButton.setBackground(getResources().getDrawable(R.drawable
                             .pri_button_inactive));
@@ -228,10 +218,10 @@ public class SignUpActivity extends AppCompatActivity {
 
     private Boolean checkEmail() {
         if (!TextUtils.isEmpty(email) && email.contains("@") && email.contains(".")) {
-            Log.d("text", "email id verified");
+
             return true;
         } else {
-            Log.d("text", "email id wrong");
+
             return false;
         }
     }

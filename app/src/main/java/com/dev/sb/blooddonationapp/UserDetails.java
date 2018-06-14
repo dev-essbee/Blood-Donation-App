@@ -22,7 +22,7 @@ public class UserDetails {
     }
 
 
-    //ToDo :ensure name is in sentance case
+
     public String getEligible() {
         return eligible;
     }

@@ -18,34 +18,34 @@
         app:shimmer_duration="1600">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
-            <include layout="@layout/donor_shimmer_layout" />
+    <include layout="@layout/donor_shimmer_layout" />
 
-            <include layout="@layout/donor_shimmer_layout" />
+    <include layout="@layout/donor_shimmer_layout" />
 
-            <include layout="@layout/donor_shimmer_layout" />
+    <include layout="@layout/donor_shimmer_layout" />
 
-            <include layout="@layout/donor_shimmer_layout" />
+    <include layout="@layout/donor_shimmer_layout" />
 
-            <include layout="@layout/donor_shimmer_layout" />
+    <include layout="@layout/donor_shimmer_layout" />
 
-            <include layout="@layout/donor_shimmer_layout" />
+    <include layout="@layout/donor_shimmer_layout" />
 
-            <include layout="@layout/donor_shimmer_layout" />
+    <include layout="@layout/donor_shimmer_layout" />
 
-            <include layout="@layout/donor_shimmer_layout" />
+    <include layout="@layout/donor_shimmer_layout" />
 
-            <include layout="@layout/donor_shimmer_layout" />
+    <include layout="@layout/donor_shimmer_layout" />
 
-            <include layout="@layout/donor_shimmer_layout" />
+    <include layout="@layout/donor_shimmer_layout" />
 
-            <include layout="@layout/donor_shimmer_layout" />
-        </LinearLayout>
+    <include layout="@layout/donor_shimmer_layout" />
+</LinearLayout>
 
-    </com.facebook.shimmer.ShimmerFrameLayout>
+</com.facebook.shimmer.ShimmerFrameLayout>
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/negative_layout_home"
@@ -61,7 +61,7 @@
             android:id="@+id/negative_image_home"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginBottom="200dp"
+            android:layout_marginBottom="204dp"
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
@@ -78,12 +78,12 @@
             android:id="@+id/negative_txt_home"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginBottom="120dp"
+            android:layout_marginBottom="124dp"
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:text="@string/internet_not"
-            android:textAlignment="center"
+android:gravity="center"
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -95,7 +95,7 @@
             style="@style/TerButtonStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="68dp"
+            android:layout_marginBottom="72dp"
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"

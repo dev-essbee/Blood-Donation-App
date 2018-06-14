@@ -27,6 +27,7 @@
     <string name="hint_email">Email</string>
     <string name="hint_new_password">New Password</string>
     <string name="hint_name">Fullname</string>
+    <string name="create_profile">Create Profile</string>
     <string name="button_login">LOGIN</string>
     <string name="button_link_to_register">Not a member? Register now!</string>
     <string name="button_link_to_login">Already registered. Login Here!</string>
@@ -52,7 +53,7 @@
     <string name="no_donor">No Donor Found!</string>
     <string name="internet_not">Unable to connect to the Internet!</string>
 <string name="data_not">No Data Found!</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
     <string name="delete_acc_title">Delete Account</string>
     <string name="enter_password">Enter Password!</string>
     <string name="name_first">Name</string>
@@ -126,5 +127,7 @@
     <string name="password">Password</string>
     <string name="button_signup">Register</string>
     <string name="retry">retry</string>
+    <string name="call_button">Call Button</string>
+    <string name="navigate_button">Navigate Button</string>
 
 </resources>

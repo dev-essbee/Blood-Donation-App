@@ -64,7 +64,7 @@ public class BloodBanksFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
         return inflater.inflate(R.layout.fragment_bld_bnk, container, false);
     }
 
@@ -125,11 +125,11 @@ public class BloodBanksFragment extends Fragment {
     }
 
     private void prepareData(String recCity) {
-        Log.d("city", "prepareData");
+
 
         new GetData().execute(recCity);
 
-        //todo clear resources on on destroy like arraylist
+
     }
 
     private void loadJSONFromAsset(String recCity) {
@@ -146,14 +146,14 @@ public class BloodBanksFragment extends Fragment {
             e.printStackTrace();
             Toast.makeText(getActivity(), "Oops! An error occured, while fetching the data.",
                     Toast.LENGTH_SHORT).show();
-            //  return null;
+
             return;
         }
         try {
             JSONArray array = new JSONArray(json);
             JSONArray inArray;
             BloodBank bloodBank;
-            Log.d("city", newLoc + " ");
+
             for (int i = 1; i <= 2823; i++) {
                 inArray = array.getJSONArray(i);
 
@@ -170,7 +170,7 @@ public class BloodBanksFragment extends Fragment {
                         phnNo = inArray.getString(14);
                     }
                     if (phnNo.equals("")) {
-                        Log.d("not found phone", name);
+
                     } else {
                         try {
                             phnNo = checkPhoneNo(phnNo);
@@ -179,13 +179,13 @@ public class BloodBanksFragment extends Fragment {
                             phnNo = " ";
                         }
                     }
-                    Log.d("city", phnNo);
+
                     String lat = inArray.getString(25);
                     String lon = inArray.getString(26);
                     String city = inArray.getString(4);
                     bloodBank = new BloodBank(name, city, phnNo, lat, lon);
                     mBloodBankList.add(bloodBank);
-                    Log.d("city list", mBloodBankList.size() + "");
+
                 }
             }
         } catch (JSONException ex) {
@@ -238,14 +238,7 @@ public class BloodBanksFragment extends Fragment {
     }
 
     private String checkPhoneNo(String phn) {
-       /* if (phn.contains(",") && phn.indexOf(",") >= 10) {
-            phn = phn.substring(0, phn.indexOf(",") );
-        } else if (phn.contains(" ") && phn.indexOf(" ") >= 10) {
-            phn = phn.substring(0, phn.indexOf(" ") );
-        } else if (phn.contains("-") && phn.indexOf("-") >= 10) {
-            phn = phn.substring(0, phn.indexOf("-") );
-        }*/
-        Log.d("no", phn);
+
         if (phn.contains("-")) {
             phn = phn.replaceAll("-", "");
         }
