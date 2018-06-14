@@ -29,4 +29,65 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="CustomTheme" parent="AppTheme">
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/accent</item>
+
+    </style>
+
+    <style name="CustomTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+
+    <style name="InputLabel" parent="TextAppearance.AppCompat.Caption">
+        <item name="android:paddingBottom">@dimen/input_label_vertical_spacing</item>
+        <item name="android:paddingLeft">@dimen/input_label_horizontal_spacing</item>
+        <item name="android:paddingRight">@dimen/input_label_horizontal_spacing</item>
+    </style>
+
+    <style name="PriButtonStyle" parent="@android:style/Widget.Button">
+        <item name="android:background">@drawable/pri_button</item>
+        <item name="android:textColor">@color/icons</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textStyle">bold</item>
+
+    </style>
+
+    <style name="PriButtonInactiveStyle" parent="@android:style/Widget.Button">
+        <item name="android:background">@drawable/pri_button_inactive</item>
+        <item name="android:textColor">@color/icons</item>
+        <item name="android:textAllCaps">true</item>
+
+    </style>
+
+    <style name="SecButtonStyle" parent="@android:style/Widget.Button">
+        <item name="android:background">@drawable/sec_button</item>
+        <item name="android:textColor">@color/primary_text</item>
+        <item name="android:textAllCaps">true</item>
+
+    </style>
+
+    <style name="TerButtonActiveStyle" parent="@android:style/Widget.Button">
+        <item name="android:background">@drawable/ter_button_active</item>
+        <item name="android:textColor">@color/icons</item>
+        <item name="android:textAllCaps">true</item>
+
+    </style>
+
+    <style name="TerButtonInactiveStyle" parent="@android:style/Widget.Button">
+        <item name="android:background">@drawable/ter_button_inactive</item>
+        <item name="android:textColor">@color/icons</item>
+        <item name="android:textAllCaps">true</item>
+
+    </style>
+    <style name="TerButtonStyle" parent="@android:style/Widget.Button">
+        <item name="android:background">@drawable/ter_button</item>
+        <item name="android:textColor">@color/primary_text</item>
+        <item name="android:textAllCaps">true</item>
+
+    </style>
+
 </resources>

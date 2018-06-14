@@ -1,29 +1,31 @@
 <resources>
-    <string name="app_name">Blood Donation App</string>
+    <string name="app_name"> Yef\'s Blood Donation App</string>
 
     <string name="title_activity_sign_up">SignUpActivity</string>
-    <string name="signup">SIGN UP/ LOGIN</string>
+    <string name="signup">Create An Account</string>
     <string name="emergency">EMERGENCY</string>
 
     <string name="title_activity_signup">SignupActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
-    <string name="navigation_title_home">Home</string>
-    <string name="navigation_title_settings">Settings</string>
-    <string name="navigation_title_dummy">Dummy</string>
-
-    <string name="action_sign_in_short">Register</string>
+    <string name="navigation_title_home">Donors</string>
+    <string name="navigation_title_settings">Profile</string>
+    <string name="navigation_title_bld_bnk">Blood Banks</string>
+    <string name="filter">Filter</string>
+    <string name="dob_format">MM/YYYY</string>
+    <string name="action_sign_in_short">Sign in</string>
     <string name="email">Email</string>
     <string name="minimum_password">Password too short, enter minimum 6 characters!</string>
-    <string name="auth_failed">Authentication failed, check your email and password or sign up</string>
-    <string name="change_email">Change Email</string>
+    <string name="auth_failed">Authentication failed, check your email and password or sign up.</string>
+    <string name="change_email">Change Email address</string>
     <string name="change_password">Change Password</string>
+    <string name="change_email_txt">Enter your password to change email id.</string>
     <string name="send_password_reset_email">Send Password reset email</string>
     <string name="remove_user">Remove user</string>
     <string name="new_pass">New Password</string>
     <string name="title_activity_login">Sign in</string>
     <string name="hint_email">Email</string>
-    <string name="hint_password">Password</string>
+    <string name="hint_new_password">New Password</string>
     <string name="hint_name">Fullname</string>
     <string name="button_login">LOGIN</string>
     <string name="button_link_to_register">Not a member? Register now!</string>
@@ -37,23 +39,33 @@
     <string name="button_send">Send</string>
     <string name="button_remove">Remove</string>
     <string name="button_sign_out">Sign Out</string>
-    <string name="lbl_forgot_password">Forgot password?</string>
+    <string name="label_forgot_password">Forgot password?</string>
+    <string name="label_forgot_password_q">Forgot password</string>
     <string name="forgot_password_msg">We just need your registered Email Id to sent you password reset instructions.</string>
     <string name="enter_email">Enter email address!</string>
     <string name="share_chooser_title">Share:</string>
-
+    <string name="confirm">Confirm</string>
+    <string name="cancel">Cancel</string>
+    <string name="share_form_fill_key">Form is filled</string>
+    <string name="acc_del_confirmation">Enter your account password to delete your account.</string>
+    <string name="city_key">city</string>
+    <string name="no_donor">No Donor Found!</string>
+    <string name="internet_not">Unable to connect to the Internet!</string>
+<string name="data_not">No Data Found!</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="delete_acc_title">Delete Account</string>
     <string name="enter_password">Enter Password!</string>
     <string name="name_first">Name</string>
-    <string name="age">Age</string>
+    <string name="dob">Date of Birth</string>
     <string name="contact_no">Mobile Number</string>
     <string name="submit">submit</string>
     <string name="clear">clear</string>
     <string name="location">Location</string>
-    <string name="select_gender">Select Gender</string>
-    <string name="selct_bld_grp">Select Blood Group</string>
+    <string name="select_gender">Gender</string>
+    <string name="select_bld_grp">Blood Group</string>
+    <string name="phone_verified_txtView">Verified</string>
     <string-array name="array_gender">
+
 
         <item>Male</item>
         <item>Female</item>
@@ -70,6 +82,22 @@
         <item>A-</item>
         <item>AB-</item>
     </string-array>
+    <string-array name="eligibility_criteria">
+        <item>You are not suffering from cancer.</item>
+        <item>You are not suffering from any heart disease</item>
+        <item>You didn\'t had any surgery in last 12 months.</item>
+        <item>You didn\'t had any tattoo in last 6 months.</item>
+        <item>You have not received Rabies Vaccination in last 12 months.</item>
+        <item>You have not undergone breastfeeding in last 12 months (if applicable)</item>
+        <item>You are not suffering from diabetes.</item>
+        <item>You are not suffering from Asthama</item>
+        <item>You don\'t have AIDS.</item>
+        <item>You have not undergone any oral surgeries in last 3 months</item>
+        <item>You don\'t have any infection at present.</item>
+        <item>You didn\'t had malaria in last 3 years.</item>
+        <item>You have not undergone ear piercing in last 1 year.</item>
+        <item>You have not donated blood in last 3 months.</item>
+    </string-array>
     <string name="title_rough_list">Items</string>
     <string name="title_rough_detail">rough Detail</string>
     <string name="title_donor_list">Donors</string>
@@ -78,4 +106,25 @@
     <string name="message">Message</string>
     <string name="emailhim">E-mail</string>
     <string name="share">Share Details</string>
+    <string name="btn_reset_password">Reset Password</string>
+    <string name="modify">Modify</string>
+    <string name="verify">Verify</string>
+    <string name="menu_save">Save</string>
+    <string name="menu_discard">Discard</string>
+    <string name="eligibility_criteria">Eligibility Criteria</string>
+    <string name="eligible_choice_text">Check if you are Eligible for Blood Donation.</string>
+    <string name="yes">Okay</string>
+    <string name="not_now">Not Now</string>
+    <string name="city">City/Town</string>
+    <string name="phone">Mobile Number</string>
+    <string name="hint_old_password">Old Password</string>
+    <string name="eligibility_txt">You are eligible for blood donation if:</string>
+    <string name="eligible_yes">I\'m eligible</string>
+    <string name="eligible_no">I\'m not eligible</string>
+    <string name="signIn">Sign In</string>
+    <string name="logout">Logout</string>
+    <string name="password">Password</string>
+    <string name="button_signup">Register</string>
+    <string name="retry">retry</string>
+
 </resources>

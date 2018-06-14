@@ -13,11 +13,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import java.io.IOException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,13 +29,11 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
     }
 
     private void prepareDetails() {
-        Details details = new Details("Call", R.drawable.common_google_signin_btn_icon_dark);
+        Details details = new Details("Call", R.drawable.ic_action_call);
         mDetailsArrayList.add(details);
-        details = new Details("Whatsapp Message", R.drawable.common_google_signin_btn_icon_dark);
+        details = new Details("Whatsapp Message", R.drawable.ic_action_whtsp);
         mDetailsArrayList.add(details);
-        details = new Details("E-mail", R.drawable.common_google_signin_btn_icon_dark);
-        mDetailsArrayList.add(details);
-        details = new Details("Share", R.drawable.common_google_signin_btn_icon_dark);
+        details = new Details("Share", R.drawable.ic_action_share);
         mDetailsArrayList.add(details);
         mDetailsAdapter.notifyDataSetChanged();
     }
@@ -71,8 +66,7 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
 
         Bundle mArgs = getArguments();
         final String phNo = mArgs.getString("phNo");
-        final String emailId = mArgs.getString("email");
-
+        final String name=mArgs.getString("name");
         mRecyclerView.setAdapter(mDetailsAdapter);
         prepareDetails();
         mRecyclerView.addOnItemTouchListener(new RecyclerTouchListener(getActivity()
@@ -86,13 +80,10 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
                         call(phNo);
                         break;
                     case 1:
-                        msg(phNo);
+                        msg(phNo,name);
                         break;
                     case 2:
-                        mail(emailId);
-                        break;
-                    case 3:
-                        share(phNo, emailId);
+                        share(phNo,name);
                         break;
                 }
             }
@@ -108,11 +99,11 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
         }
     }
 
-    private void msg(String phNo) {
+    private void msg(String phNo,String name) {
         String url = "", msgText = "";
         try {
-            msgText = "Hi jfkdj";
-            url = "https://api.whatsapp.com/send?phone=" +"+91"+ phNo + "&text=" +
+            msgText = "Hi, "+name;
+            url = "https://api.whatsapp.com/send?phone=" + "+91" + phNo + "&text=" +
                     URLEncoder.encode(msgText, "UTF-8");
         } catch (Exception e) {
             Log.e("Message", e.toString());
@@ -125,21 +116,9 @@ public class BottomSheetFragment extends BottomSheetDialogFragment {
         }
     }
 
-    private void mail(String email) {
-        String[] emailId = new String[]{email};
-        Intent mailIntent = new Intent(Intent.ACTION_SENDTO);
-        mailIntent.setData(Uri.parse("mailto:"));
-        mailIntent.putExtra(Intent.EXTRA_EMAIL, emailId);
-        mailIntent.putExtra(Intent.EXTRA_SUBJECT, "Hi");
-        mailIntent.putExtra(Intent.EXTRA_TEXT, "this is the body of the email");
-        if (mailIntent.resolveActivity(getActivity().getPackageManager()) != null) {
-            startActivity(mailIntent);
-        }
-    }
-
-    private void share(String phNo, String email) {
+    private void share(String phNo,String name) {
         Intent shareIntent = new Intent(Intent.ACTION_SEND);
-        shareIntent.putExtra(Intent.EXTRA_TEXT, "text to be shared");
+        shareIntent.putExtra(Intent.EXTRA_TEXT,"Donor name: "+ name+", Mobile Number: "+phNo);
         shareIntent.setType("text/plain");
         String title = getResources().getString(R.string.share_chooser_title);
         Intent chooser = Intent.createChooser(shareIntent, title);

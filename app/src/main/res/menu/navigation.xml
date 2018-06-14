@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-<item android:id="@+id/navigation_donor"
-    android:title="@string/navigation_title_home"/>
-    <item android:id="@+id/navigation_dummy"
-        android:title="@string/navigation_title_dummy"/>
-    <item android:id="@+id/navigation_settings"
-        android:title="@string/navigation_title_settings"
-        />
+    <item
+        android:id="@+id/navigation_donor"
+        android:icon="@drawable/ic_action_donors"
+        android:title="@string/navigation_title_home" />
+    <item
+        android:id="@+id/navigation_dummy"
+        android:icon="@drawable/ic_action_bld_bnk"
+        android:title="@string/navigation_title_bld_bnk" />
+    <item
+        android:id="@+id/navigation_settings"
+        android:icon="@drawable/ic_action_user"
+        android:title="@string/navigation_title_settings" />
 </menu>

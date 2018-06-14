@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?><!--    tools:context=".ProfileFragment"-->
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="16dp">
+
+    <View
+        android:id="@+id/text_name1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+
+        android:layout_marginEnd="64dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="16dp"
+
+        android:background="@color/placeholder_bg"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/text_phone_layout1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="spread_inside" />
+
+    <View
+        android:id="@+id/text_phone_layout1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="32dp"
+        android:background="@color/placeholder_bg"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/text_email_layout1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_name1" />
+
+    <View
+        android:id="@+id/text_email_layout1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="72dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/placeholder_bg"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayout21"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_phone_layout1" />
+
+
+    <View
+        android:id="@+id/textInputLayout21"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="72dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/placeholder_bg"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/layout_switch_available1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_email_layout1" />
+
+
+    <View
+        android:id="@+id/layout_switch_available1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/placeholder_bg"
+        android:orientation="horizontal"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/layout_switch_eligible1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout21" />
+
+
+    <View
+        android:id="@+id/layout_switch_eligible1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/placeholder_bg"
+        android:orientation="horizontal"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/button_change_password1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_switch_available1" />
+
+
+    <View
+        android:id="@+id/button_change_password1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="24dp"
+        android:background="@color/placeholder_bg"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/button_delete1"
+        app:layout_constraintEnd_toStartOf="@+id/button_logout1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_switch_eligible1" />
+
+    <View
+        android:id="@+id/button_logout1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:background="@color/placeholder_bg"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/button_delete1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/button_change_password1"
+        app:layout_constraintTop_toBottomOf="@+id/layout_switch_eligible1" />
+
+    <View
+        android:id="@+id/button_delete1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="68dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/placeholder_bg"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_logout1" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline31"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="56dp"
+        android:orientation="horizontal" />
+</android.support.constraint.ConstraintLayout>

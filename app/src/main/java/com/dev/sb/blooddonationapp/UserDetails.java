@@ -3,14 +3,31 @@ package com.dev.sb.blooddonationapp;
 import android.util.Log;
 
 public class UserDetails {
-    private String name, age, phNo, gender, bloodGrp, city, email;
-    private int eligible;
-//ToDo :ensure name is in sentance case
-    public int getEligible() {
+    private String name;
+    private String dob;
+    private String phNo;
+    private String gender;
+    private String bloodGrp;
+    private String city;
+
+    private String eligible;
+    private String verified;
+
+    public String getVerified() {
+        return verified;
+    }
+
+    public void setVerified(String verified) {
+        this.verified = verified;
+    }
+
+
+    //ToDo :ensure name is in sentance case
+    public String getEligible() {
         return eligible;
     }
 
-    public void setEligible(int eligible) {
+    public void setEligible(String eligible) {
         this.eligible = eligible;
     }
 
@@ -20,15 +37,16 @@ public class UserDetails {
 
     public void setName(String name) {
         this.name = name;
-        Log.d("User Details",this.name);
-    }
-    public String getAge() {
-        return age;
+        Log.d("User Details", this.name);
     }
 
-    public void setAge(String age) {
-        this.age = age;
-        Log.d("User Details",this.age);
+    public String getDob() {
+        return dob;
+    }
+
+    public void setDob(String dob) {
+        this.dob = dob;
+        Log.d("User Details", this.dob);
     }
 
     public String getPhNo() {
@@ -37,7 +55,7 @@ public class UserDetails {
 
     public void setPhNo(String phNo) {
         this.phNo = phNo;
-        Log.d("User Details",this.phNo);
+        Log.d("User Details", this.phNo);
     }
 
     public String getGender() {
@@ -46,7 +64,7 @@ public class UserDetails {
 
     public void setGender(String gender) {
         this.gender = gender;
-        Log.d("User Details",this.gender);
+        Log.d("User Details", this.gender);
     }
 
     public String getBloodGrp() {
@@ -55,7 +73,7 @@ public class UserDetails {
 
     public void setBloodGrp(String bloodGrp) {
         this.bloodGrp = bloodGrp;
-        Log.d("User Details",this.bloodGrp);
+        Log.d("User Details", this.bloodGrp);
     }
 
     public String getCity() {
@@ -64,15 +82,6 @@ public class UserDetails {
 
     public void setCity(String city) {
         this.city = city;
-        Log.d("User Details",this.city);
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-        Log.d("User Details",this.email);
+        Log.d("User Details", this.city);
     }
 }

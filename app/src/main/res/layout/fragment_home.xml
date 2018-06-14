@@ -1,65 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinatorLayoutHome"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".HomeFragment">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-    <LinearLayout
-        android:id="@+id/eligible_ask"
-        android:layout_width="match_parent"
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/home_shimmer"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:visibility="gone"
-        android:layout_margin="@dimen/normal_margin"
-        >
+        android:orientation="vertical"
+        app:shimmer_duration="1600">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <Button
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/eligible_fill"/>
+            android:orientation="vertical">
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:id="@+id/eligible_later"/>
-    </LinearLayout>
+            <include layout="@layout/donor_shimmer_layout" />
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_View"
+            <include layout="@layout/donor_shimmer_layout" />
+
+            <include layout="@layout/donor_shimmer_layout" />
+
+            <include layout="@layout/donor_shimmer_layout" />
+
+            <include layout="@layout/donor_shimmer_layout" />
+
+            <include layout="@layout/donor_shimmer_layout" />
+
+            <include layout="@layout/donor_shimmer_layout" />
+
+            <include layout="@layout/donor_shimmer_layout" />
+
+            <include layout="@layout/donor_shimmer_layout" />
+
+            <include layout="@layout/donor_shimmer_layout" />
+
+            <include layout="@layout/donor_shimmer_layout" />
+        </LinearLayout>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/negative_layout_home"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:clipToPadding="false"
-        android:scrollbars="vertical"
-        >
+        android:visibility="visible">
 
-    </android.support.v7.widget.RecyclerView>
+        <include
+            android:id="@+id/negative_layout_eligible"
+            layout="@layout/eligible_ask_layout" />
+
+        <ImageView
+            android:id="@+id/negative_image_home"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="200dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_internet_negative"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/negative_txt_home"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="120dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/internet_not"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/negative_image_home" />
+
+        <Button
+            android:id="@+id/negative_button_home"
+            style="@style/TerButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="68dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/retry"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/negative_txt_home"
+            app:layout_constraintVertical_bias="0.0" />
+    </android.support.constraint.ConstraintLayout>
+
+    <LinearLayout
+        android:id="@+id/positive_layout_home"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_editor_absoluteX="0dp"
+        app:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="62dp"
+        tools:layout_editor_absoluteY="125dp">
+
+        <include
+            android:id="@+id/positive_layout_eligible"
+            layout="@layout/eligible_ask_layout" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_View"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:scrollbars="vertical">
+
+        </android.support.v7.widget.RecyclerView>
+    </LinearLayout>
+
+
 </LinearLayout>
-
-    <android.support.design.widget.FloatingActionButton
-        android:layout_width="56dp"
-        android:layout_height="56dp"
-
-        android:layout_marginBottom="16dp"
-        android:layout_marginEnd="16dp"
-        android:src="@drawable/ic_edit_black_24dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        android:id="@+id/filter_fab"/>
-
-
-</android.support.constraint.ConstraintLayout>
